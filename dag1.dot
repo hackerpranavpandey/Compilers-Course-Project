@@ -1,0 +1,39 @@
+digraph G {
+  rankdir=TB;
+  node [shape=box, fontname=Consolas, fontsize=10];
+  edge [fontname=Consolas, fontsize=9];
+  compound=true;
+
+  subgraph cluster_factorial {
+      label = "factorial blocks";
+      style=dashed; color=grey;
+
+      F_N0 [label="num\n[num]"];      
+      F_N1 [label="1\n[1]"];          
+      F_N2 [label="<=\n[t0]"];  
+
+      F_N3 [label="-\n[t1]"];         
+      F_N4 [label="call factorial\n[t2]"];
+      F_N5 [label="*\n[t3]"];
+
+      F_N0 -> F_N2 [label="op1"]; F_N1 -> F_N2 [label="op2"];
+      F_N0 -> F_N3 [label="op1"]; F_N1 -> F_N3 [label="op2"]; 
+      F_N0 -> F_N5 [label="op1"]; F_N4 -> F_N5 [label="op2"];
+  }
+
+  subgraph cluster_main {
+      label = "main block";
+      style=dashed; color=grey;
+
+      M_N0 [label="a\n[a]"];          
+      M_N1 [label="b\n[b]"];        
+      M_N2 [label="call factorial\n[t4]"]; 
+      M_N3 [label="call factorial\n[t5]"]; 
+      M_N4 [label="*\n[t6]"];          
+      M_N5 [label="c\n[c, t6]"];
+
+      M_N2 -> M_N4 [label="op1"]; M_N3 -> M_N4 [label="op2"];
+      M_N4 -> M_N5 [label="assign"];
+   }
+
+}

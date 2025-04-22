@@ -1,0 +1,25 @@
+func begin factorial
+  t0 = num <= 1          
+  ifFalse t0 goto L0      
+  return 1                
+  goto L1                 
+L0:                      
+  t1 = num - 1           
+  param t1               
+  t2 = call factorial, 1  
+  t3 = num * t2           
+  return t3               
+L1:                      
+func end factorial          
+
+func begin main          
+  read a                 
+  read b               
+  param a                 
+  t4 = call factorial, 1  
+  param b                 
+  t5 = call factorial, 1  
+  t6 = t4 * t5            
+  c = t6                 
+  write c                 
+func end main               

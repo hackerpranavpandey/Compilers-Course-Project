@@ -1,0 +1,8 @@
+a
+b
+c
+cin
+cout
+factorial
+main
+num
